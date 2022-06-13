@@ -6,23 +6,16 @@ from threading import Thread
 from time import time
 
 
-RUNNING_TIME = 5  # in seconds
+def say_something(something: str, duration: int):
+    """print something to the stdout for a given period of time
 
-
-def say_hello():
-    """prints Hello! for RUNNING_TIME seconds
+    Args:
+        something (str): the text to print
+        duration (int): the duration to print for (in seconds)
     """
-    end_time = time() + RUNNING_TIME
+    end_time = time() + duration
     while time() < end_time:
-        print("Hello!")
-
-
-def say_shalom():
-    """prints Shalom! for RUNNING_TIME seconds
-    """
-    end_time = time() + RUNNING_TIME
-    while time() < end_time:
-        print("Shalom!")
+        print(something)
 
 
 def main():
@@ -30,10 +23,14 @@ def main():
     """
     # here we create a thread object
     # threads have to be created and then started
+    #
     # the target parameter is a POINTER to the function to run
     # don't forget: it is a POINTER, DO NOT add () after the function name
-    thread1 = Thread(target=say_hello)
-    thread2 = Thread(target=say_shalom)
+    #
+    # the args parameter is a LIST of arguments to pass to the function
+    # don't forget: it is a LIST, you NEED the [], even for one parameter
+    thread1 = Thread(target=say_something, args=["Hello!", 5])
+    thread2 = Thread(target=say_something, args=["Shalom!", 5])
 
     # here we start the thread, the main function continues to run
     # without waiting for the function in thread1 to finish
