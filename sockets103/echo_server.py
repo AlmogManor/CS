@@ -11,7 +11,7 @@ from os import _exit as force_exit
 def keyboard_exit():
     """exit when enter is pressed
     """
-    input("Press enter to exit")
+    input("Press enter to exit\n")
     force_exit(0)
 
 
