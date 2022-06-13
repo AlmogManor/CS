@@ -4,7 +4,6 @@ A script to demonstrate how to avoid race conditioning
 """
 from sys import argv
 from threading import Thread
-from time import sleep
 
 # the bit of code in the beginning gets the folder that the .py file is save in
 FILE = '\\'.join(argv[0].split('\\')[0:-1]) + "\\race_condition_fixed.txt"
@@ -26,7 +25,7 @@ def write_letter_by_letter(filename: str, text: str):
     for letter in text:
         while IS_FILE_OPEN:
             pass
-        
+
         IS_FILE_OPEN = True
         with open(filename, "a", encoding="ascii") as dest:
             dest.write(letter)
