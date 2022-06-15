@@ -1,0 +1,1 @@
+This is some random text, the point here is that the text is extremely long but the signature stays the same size no matter what, so we can use this to verify the integrity of large file, like when we send them over the network, because even with TCP they have a change to get corrupted sometimes, or maybe a malicious hacker can interfere
